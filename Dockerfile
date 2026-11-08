@@ -15,6 +15,9 @@
 # php@sha256:99cede493dfd88720b610eb8077c8688d3cca50003d76d1d539b0efc8cca72b4.
 FROM php:8.5.10-apache
 
+# Installa le estensioni PHP per comunicare con MySQL/MariaDB
+RUN docker-php-ext-install pdo_mysql mysqli
+
 # Your PHP application may require additional PHP extensions to be installed
 # manually. For detailed instructions for installing extensions can be found, see
 # https://github.com/docker-library/docs/tree/master/php#how-to-install-more-php-extensions
@@ -44,8 +47,8 @@ FROM php:8.5.10-apache
 # https://github.com/docker-library/docs/tree/master/php#configuration
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
-# Copy app files from the app directory.
-COPY . /var/www/html
+# Copy app files from the www directory.
+COPY ./www /var/www/html
 
 # Switch to a non-privileged user (defined in the base image) that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/

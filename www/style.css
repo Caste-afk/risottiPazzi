@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+
+:root {
+    --bg-dark: #0f141c;
+    --card-bg: rgba(24, 31, 44, 0.85);
+    --card-border: rgba(255, 183, 77, 0.15);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-amber: #f59e0b;
+    --accent-gold: #fbbf24;
+    --accent-red: #ef4444;
+    --accent-green: #10b981;
+    --accent-hover: #d97706;
+    --input-bg: rgba(15, 20, 28, 0.7);
+    --input-border: #334155;
+    --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(239, 68, 68, 0.08) 0px, transparent 50%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+/* Navbar Orizzontale (Modulo 2) */
+.navbar {
+    background: rgba(15, 20, 28, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 14px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--accent-gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.nav-brand span {
+    font-size: 1.6rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link:hover {
+    color: var(--accent-gold);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.nav-link.active {
+    color: #fff;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+}
+
+/* Layout Container */
+.container {
+    max-width: 1200px;
+    margin: 36px auto;
+    padding: 0 20px;
+}
+
+/* Header di Sezione */
+.section-header {
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.section-title span {
+    color: var(--accent-gold);
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+/* Card Contenitore */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+}
+
+/* Tabella Ricette (Modulo 1) */
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+.recipes-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.92rem;
+}
+
+.recipes-table th {
+    background: rgba(15, 20, 28, 0.85);
+    color: var(--accent-gold);
+    padding: 14px 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid var(--card-border);
+    white-space: nowrap;
+}
+
+.recipes-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    vertical-align: top;
+    color: #e2e8f0;
+    line-height: 1.55;
+}
+
+.recipes-table tr:hover td {
+    background: rgba(245, 158, 11, 0.04);
+}
+
+.recipe-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.recipe-id {
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--accent-amber);
+    background: rgba(245, 158, 11, 0.12);
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.content-box {
+    max-height: 160px;
+    overflow-y: auto;
+    padding-right: 6px;
+    color: var(--text-secondary);
+}
+
+.content-box::-webkit-scrollbar {
+    width: 4px;
+}
+.content-box::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+/* Modulo 2 Form */
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.form-control {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-amber);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Pulsanti */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #f87171, #ef4444);
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+}
+
+.btn-secondary {
+    background: #334155;
+    color: #f1f5f9;
+}
+
+.btn-secondary:hover {
+    background: #475569;
+}
+
+.btn-sm {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+}
+
+/* Banner Alert */
+.alert {
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.alert-success {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #6ee7b7;
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #fca5a5;
+}
+
+/* Modulo 2 - Box Azione Eliminazione */
+.action-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px dashed rgba(239, 68, 68, 0.35);
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.action-banner p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Badge & Empty State */
+.empty-state {
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--text-secondary);
+}
+
+.empty-state span {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 12px;
+}
